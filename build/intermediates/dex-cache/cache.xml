@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="E:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="E:\SimpleIntegralbob\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_f0ab625e2aa242d01aa2cd3c4d39a3cf5323d1f8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\SimpleIntegralbob\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bb409d308eeb52eb8b2998c9c2430decf78610a3">
+        <dex dex="E:\SimpleIntegralbob\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9eb699575a27950650aaedc95371f7c9ba45fa47\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\SimpleIntegralbob\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e0681dae68a0a1afaac707a735d6558181f271b4">
+        <dex dex="E:\SimpleIntegralbob\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_f461511797ed8534538e3cfae27c12e419b8670a\classes.dex" />
+    </item>
+
+</items>

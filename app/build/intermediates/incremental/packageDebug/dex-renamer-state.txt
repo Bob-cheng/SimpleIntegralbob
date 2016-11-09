@@ -1,0 +1,7 @@
+#Wed Nov 09 15:51:16 CST 2016
+base.0=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f461511797ed8534538e3cfae27c12e419b8670a
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9eb699575a27950650aaedc95371f7c9ba45fa47\\classes.dex
+base.1=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_9eb699575a27950650aaedc95371f7c9ba45fa47
+file.0=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f461511797ed8534538e3cfae27c12e419b8670a\\classes.dex

@@ -1,0 +1,21 @@
+#Internal package file, do not edit.
+#Wed Nov 09 15:51:08 CST 2016
+2.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+5.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+5.set=ANDROID_RESOURCE
+3.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+2.set=ANDROID_RESOURCE
+4.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+count=6
+0.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu-v11\\main.xml
+5.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.set=ANDROID_RESOURCE
+1.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_main.xml
+1.set=ANDROID_RESOURCE
+2.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu\\main.xml
+0.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\ic_launcher.png
+3.set=ANDROID_RESOURCE
+1.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+0.set=ANDROID_RESOURCE
