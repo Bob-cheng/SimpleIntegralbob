@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 16 20:34:01 CST 2016
+#Wed Nov 16 21:25:04 CST 2016
 2.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_
 5.file=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v17\\activity_main.xml
 5.set=ANDROID_RESOURCE

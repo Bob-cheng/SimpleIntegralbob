@@ -1,4 +1,4 @@
-#Wed Nov 16 20:57:54 CST 2016
+#Wed Nov 16 23:57:45 CST 2016
 base.0=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_f461511797ed8534538e3cfae27c12e419b8670a
 renamed.1=classes.dex
 renamed.0=classes2.dex

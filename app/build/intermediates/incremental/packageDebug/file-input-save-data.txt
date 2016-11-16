@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 16 20:57:54 CST 2016
+#Wed Nov 16 21:25:05 CST 2016
 19.set=ANDROID_RESOURCE
 8.set=DEX
 1.base=E\:\\SimpleIntegralbob\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_8

@@ -126,6 +126,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 					}
 
 					if (System.currentTimeMillis() - pre_time >= 3000) {
+						//float [] a = new float[count];
+						filter(acc_z,count);
 						float disp = Displacement(acc_z, count);
 						StringBuilder resultBuilder = new StringBuilder();
 						resultBuilder.append("Displacement=" + Math.round(disp * 100) / 100.0);
@@ -204,7 +206,14 @@ public class MainActivity extends Activity implements SensorEventListener{
 				min=a[i];
 		return min;
 	}
-	
+
+	private void filter(float a[],int length){
+		int parm=128;//滤波参数 0~256
+		for(int i=1;i<length;i++){
+			a[i]=(a[i]*parm+a[i-1]*(256-parm))/256;
+		}
+	}
+
 	float Displacement(float a[],int length)
 	{
 		int i;
@@ -235,8 +244,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 		float negative_disp=0;
 		int place;//零点的位置
 		int k;
-		double yuzhi=2;
-		float limit=(float) Math.sqrt(5);//正负距离之比大于该值则可以判断上下运动，小于表示静止
+		double yuzhi=0,yuzhiplus=0;//阈值判断法的加速度的阈值，原始值为2
+		float limit=(float) Math.sqrt(5);//正负距离之比大于该值则可以判断上下运动，小于表示静止,原值为根号五
 		int pre_info=-1;//记录上一次上下运动的判断结果
 		StringBuilder resultBuilder=new StringBuilder();
 		for(i=flag;i<length&&flag<length;i++)
@@ -249,8 +258,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 		    if(v[flag]>0 && v[flag+1]>0)//速度大于0的阶段
 		    {
 		    	place=findNextZero(v,length,flag);//从flag开始寻找零点。
-		    	if(Math.abs(findMax(a, flag, place==-1?length-1:place))<=yuzhi &&
-						Math.abs(findMin(a, flag, place==-1?length-1:place))<=yuzhi)
+		    	if(Math.abs(findMax(a, flag, place==-1?length-1:place))<=yuzhiplus &&
+						Math.abs(findMin(a, flag, place==-1?length-1:place))<=yuzhiplus)
 				//从flag到零点的阶段或者从flag到取样结束的阶段，阈值法判别，最大值小于阈值的情况
 		    	{
 		    		//resultBuilder.append("v>0的时候太小了！flag="+flag+",place="+place+"\n");
@@ -309,7 +318,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 				if(place!=-1)//找到了零点，积分算flag到place的位移。
 				{
 					//printf("i=%d,flag=%d,place=%d\n",i,flag,place);
-					positive_disp=0;
+					if(pre_status!=1)
+						positive_disp=0;
 					for(k=flag;k<=place;k++)
 					    positive_disp+=(v[k]+v[k-1])/(2*(length-1));//积
 					//printf("第%d个Positive=%.3f\n",++positive_time,positive_disp);
@@ -320,7 +330,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 				}
 				else//没有找到零点，积分算flag到末尾的位移。判定状态后退出
 				{
-					positive_disp=0;
+					if(pre_status!=1)
+						positive_disp=0;
 					for(k=flag;k<length;k++)
 					    positive_disp+=(v[k]+v[k-1])/(2*(length-1));
 					//printf("第%d个Positive=%.3f\n",++positive_time,positive_disp);
@@ -366,6 +377,7 @@ public class MainActivity extends Activity implements SensorEventListener{
 				    }
 					break;
 				}
+
 				if(pre_status==1 || pre_status==0)
 				{
 					pre_status=1;
@@ -456,7 +468,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 				if(place!=-1)//找到了零点，同时不是最后一段位移，积分算flag到place的位移。
 				{
 					//printf("i=%d,flag=%d,place=%d\n",i,flag,place);
-					negative_disp=0;
+					if(pre_status!=2)
+						negative_disp=0;
 					for(k=flag;k<=place;k++)
 					    negative_disp+=(v[k]+v[k-1])/(2*(length-1));//对这段时间的速度进行积分计算位移
 					//printf("第%d个Negative=%.3f\n",++negative_time,negative_disp);
@@ -467,13 +480,14 @@ public class MainActivity extends Activity implements SensorEventListener{
 				}
 				else//大于阈值的最后一段位移的情况
 				{
-					negative_disp=0;
+					if(pre_status!=2)
+						negative_disp=0;
 					for(k=flag;k<length;k++)
 					    negative_disp+=(v[k]+v[k-1])/(2*(length-1));
 					//printf("第%d个Negative=%.3f\n",++negative_time,negative_disp);
 					resultBuilder.append("第"+(++negative_time)+"个Negative="+negative_disp+"\n");
 					//resultBuilder.append("flag="+flag+",place="+place+"\n");
-					if(pre_status==1)//如果有上一个阶段
+					if(pre_status==1)//如果上一个阶段向上
 				    {
 						if(Math.abs(positive_disp/negative_disp)>limit && pre_info!=1)
 						{
@@ -491,8 +505,8 @@ public class MainActivity extends Activity implements SensorEventListener{
 							pre_info=0;
 						}
 				    }
-				    else//如果这个是第一个阶段
-				    {
+				    else//如果这个是第一个阶段或上一个阶段也是向下
+						{
 				    	if(negative_disp>0 && pre_info!=1)
 	    				{
 	    					resultBuilder.append("向上移动了。\n");

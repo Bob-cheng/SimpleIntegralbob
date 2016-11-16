@@ -12,7 +12,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="up or down?" />
 
     <EditText
         android:id="@+id/editText1"
@@ -30,6 +30,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="17dp"
+        android:maxHeight="250dp"
         android:ems="10" />
 
     <TextView
@@ -147,11 +148,11 @@
 
     <Button
         android:text="开始"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/btnstart"
-        android:onClick="btnstart" />
+        android:onClick="btnstart"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/trans_y" />
 
 </RelativeLayout>
